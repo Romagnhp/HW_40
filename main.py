@@ -65,6 +65,6 @@ with Session(myEngine) as db:
         #     print(k.id ,k.name, k.height)
 
         # вывод всех людей (по свойству gender) у которых рост больше 170 см
-        # select  = db.query(MyColunms).filter(MyColunms.height > 170).all()
-        # for k in select:
-        #     print(k.id, k.name, k.height)
+        select  = db.query(MyColunms).filter(MyColunms.height > 170, MyColunms.gender.like('%male%') ).all()
+        for k in select:
+            print(k.id, k.name, f'gender - {k.gender}', k.height)
